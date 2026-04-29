@@ -5,6 +5,7 @@ import {
   KAPITALERTRAG_CONFIG_2026,
   KRANKENGELD_CONFIG_2026,
   MIETPREISBREMSE_CONFIG,
+  MINIJOB_CONFIG_2026,
   NEBENKOSTEN_CONFIG,
   RENTEN_CONFIG_2026,
   SOCIAL_CONFIG_2026,
@@ -121,6 +122,12 @@ export interface ArbeitslosengeldInputs {
   hasChildren: boolean;
   employmentMonths: number;
   isEastGermany: boolean;
+}
+
+export interface MinijobInputs {
+  monthlyEarnings: number;
+  isPensionInsured: boolean;
+  pensionRate: 0 | 0.05 | 0.15; // 0% = beitragsfrei, 5% = ermäßigt, 15% = voll
 }
 
 export interface KrankengeldInputs {
@@ -757,6 +764,40 @@ export function calculateArbeitslosengeld(input: ArbeitslosengeldInputs) {
     effectiveRate: roundCurrency(rate * 100),
     netReplacementRate: hasClaim ? roundCurrency((monthlyALG / input.netMonthly) * 100) : 0,
     hasClaim,
+  };
+}
+
+export function calculateMinijob(input: MinijobInputs) {
+  const cfg = MINIJOB_CONFIG_2026;
+
+  // Prüfe ob im Minijob-Bereich (<= 538 EUR)
+  const isMinijob = input.monthlyEarnings <= cfg.earningsLimitMonthly;
+
+  // Arbeitgeber-Kosten
+  const employerPauschalTax = input.monthlyEarnings * cfg.employerPauschalTaxRate;
+  const employerSocial = input.monthlyEarnings * cfg.employerSocialRate;
+  const employerTotalCost = input.monthlyEarnings + employerPauschalTax + employerSocial;
+
+  // Arbeitnehmer-Netto
+  const employeePensionDeduction = input.monthlyEarnings * input.pensionRate;
+  const employeeNet = input.monthlyEarnings - employeePensionDeduction;
+
+  // Vergleich: Was bleibt netto bei Minijob vs. normaler Job
+  // Annahme: normaler Job hätte ~20% Abzüge (grob geschätzt)
+  const normalEstimatedDeductionRate = 0.2;
+  const normalEstimatedNet = input.monthlyEarnings * (1 - normalEstimatedDeductionRate);
+  const netGain = employeeNet - normalEstimatedNet;
+
+  return {
+    isMinijob,
+    earningsLimit: cfg.earningsLimitMonthly,
+    employeeNet: roundCurrency(employeeNet),
+    employeePensionDeduction: roundCurrency(employeePensionDeduction),
+    employerTotalCost: roundCurrency(employerTotalCost),
+    employerPauschalTax: roundCurrency(employerPauschalTax),
+    employerSocial: roundCurrency(employerSocial),
+    netGain: roundCurrency(netGain),
+    pensionRatePercent: input.pensionRate * 100,
   };
 }
 

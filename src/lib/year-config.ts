@@ -117,7 +117,7 @@ export const KRANKENGELD_CONFIG_2026 = {
 } as const;
 
 export const ARBEITSLOSENGELD_CONFIG_2026 = {
-  // ALG I berechnet sich aus dem maintienable income (beitragspflichtiges Entgelt)
+  // ALG I berechnet sich aus dem maintenable income (beitragspflichtiges Entgelt)
   // Grundsatz: 60% des letzten Nettoentgelts (67% mit Kind)
   baseRate: 0.6,
   baseRateWithChild: 0.67,
@@ -138,4 +138,19 @@ export const ARBEITSLOSENGELD_CONFIG_2026 = {
   maxDurationMonths: 12,
   // Wartenzeit (Sperrzeit) in Wochen - standardmäßig 1 Woche
   waitingPeriodWeeks: 1,
+} as const;
+
+export const MINIJOB_CONFIG_2026 = {
+  // Minijob-Grenze 2026: 538 EUR/Monat (West = Ost)
+  earningsLimitMonthly: 538,
+  // Pauschalsteuer für Arbeitgeber: 15% (13% + 2% Lohnsteuer + Soli)
+  employerPauschalTaxRate: 0.15,
+  // Pauschalabgaben: 15% (13% KV + 1,6% RV + 0,4% PV)
+  employerSocialRate: 0.15,
+  // Arbeitnehmer-Rentenversicherung: optional 15% odder 5% (bei Befreiung)
+  employeePensionRateFull: 0.15,
+  employeePensionRateReduced: 0.05,
+  // Arbeitnehmer hat keine Lohnsteuer, KV, AV, PV Abzüge
+  // Aber: wenn RV-pflichtig, dann 15% (oder 5%) vom Brutto
+  // Netto = Brutto - (RV wenn Pflicht)
 } as const;

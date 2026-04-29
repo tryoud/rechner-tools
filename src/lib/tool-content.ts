@@ -1163,4 +1163,72 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
       },
     ],
   },
+  minijob: {
+    summary:
+      'Berechnet Minijob-Verdienst bis 538 €/Monat: Arbeitgebekosten mit Pauschalsteuer (15%), Arbeitnehmernetto mit optionaler Rentenversicherung (0%, 5% oder 15%).',
+    updatedAt: '2026-04-29',
+    checkedAgainst:
+      'Minijob-Grenze 2026 (538 €/Monat), Pauschalbesteuerung § 40a EStG, RV-Pflicht nach SGB VI.',
+    sources: [
+      {
+        label: 'Bundesregierung: Minijob-Grenze 2026',
+        url: 'https://www.bundesregierung.de/breg-de/themen/arbeitnehmerrechte/minijob-538-euro',
+      },
+      {
+        label: 'Minijob-Zentrale: Informationen für Arbeitgeber',
+        url: 'https://www.minijob-zentrale.de',
+      },
+    ],
+    disclaimer: COMMON_DISCLAIMER,
+    scenarios: [
+      {
+        title: 'Bei 538 € Verdienst',
+        text: 'Der Maximallohn für Minijobs. Arbeitgeber zahlt 15% Pauschalsteuer + 15% Sozialabgaben = 30% Aufschlag.',
+      },
+      {
+        title: 'Mit Rentenversicherung',
+        text: 'Arbeitnehmer kann freiwillig in die Rentenversicherung einzahlen – dann 15% (oder 5%) Abzug vom Brutto.',
+      },
+      {
+        title: 'Vergleich zum Normaljob',
+        text: 'Bei 538 € Minijob bleiben ~430 € netto (ohne RV). Ein Normaljob mit 538 € hätte durch Sozialabgaben deutlich weniger netto.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Was ist ein Minijob?',
+        answer:
+          'Ein Minijob (geringfügige Beschäftigung) ist eine Arbeitsverhältnis mit maximal 538 € monatlichem Verdienst (2026). Er ist sozialversicherungsfrei (außer optional Rentenversicherung).',
+      },
+      {
+        question: 'Muss ich als Minijobber Steuern zahlen?',
+        answer:
+          'Nein. Der Arbeitgeber zahlt eine Pauschalsteuer von 15% direkt an das Finanzamt. Für dich als Arbeitnehmer fällt keine Lohnsteuer an.',
+      },
+      {
+        question: 'Kann ich als Minijobber in die Rentenversicherung einzahlen?',
+        answer:
+          'Ja, freiwillig. Du kannst zwischen 0% (beitragsfrei), 5% (ermäßigt) oder 15% (voll) wählen. Der Arbeitgeber zahlt keinen Anteil.',
+      },
+      {
+        question: 'Wie hoch sind die Kosten für den Arbeitgeber?',
+        answer:
+          'Der Arbeitgeber zahlt dein Gehalt + 15% Pauschalsteuer + 15% Pauschalsozialabgaben = insgesamt 30% Aufschlag auf dein Bruttogehalt.',
+      },
+    ],
+    howTo: [
+      {
+        title: '1. Monatsverdienst eingeben',
+        description: 'Trage dein monatliches Gehalt aus dem Minijob ein (max. 538 €).',
+      },
+      {
+        title: '2. Rentenversicherung wählen',
+        description: 'Entscheide, ob du in die Rentenversicherung einzahlen möchtest (0%, 5% oder 15%).',
+      },
+      {
+        title: '3. Ergebnis ablesen',
+        description: 'Der Rechner zeigt dein Nettogehalt, die Arbeitgeberkosten und den Vergleich zu einem Normaljob.',
+      },
+    ],
+  },
 };

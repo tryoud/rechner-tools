@@ -160,6 +160,19 @@ export const TOOLS: Tool[] = [
     related: ['brutto-netto', 'abfindung', 'krankengeld'],
   },
   {
+    id: 'minijob',
+    title: 'Minijob-Rechner',
+    description:
+      'Minijob bis 538 €/Monat: Arbeitgeberkosten, Arbeitnehmernetto und Rentenversicherung optional berechnen.',
+    category: 'Arbeit',
+    slug: '/minijob',
+    volume: 'New',
+    available: true,
+    new: true,
+    phase: 'live',
+    related: ['brutto-netto', 'stundenrechner', 'stundensatz'],
+  },
+  {
     id: 'rente',
     title: 'Renten-Rechner',
     description:

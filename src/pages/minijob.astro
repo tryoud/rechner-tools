@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import MinijobRechner from '../components/tools/MinijobRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.minijob
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Minijob-Rechner 2026',
+    description:
+      'Minijob bis 538 €/Monat berechnen: Arbeitgeberkosten, Arbeitnehmernetto und optionale Rentenversicherung (0%, 5% oder 15%).',
+    url: 'https://rechner.tools/minijob',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Minijob-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Minijob-Rechner 2026 | rechner.tools"
+  description="Minijob-Rechner: Berechne bei bis zu 538 € Verdienst, wie viel netto übrig bleibt und was der Arbeitgeber für Pauschalsteuer und Sozialabgaben zahlt."
+  canonical="https://rechner.tools/minijob"
+  schema={schema}
+>
+  <MinijobRechner client:load />
+</BaseLayout>
