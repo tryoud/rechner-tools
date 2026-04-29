@@ -1,0 +1,3 @@
+const { SOCIAL_CONFIG_2026 } = require('./src/lib/year-config');
+
+// ...

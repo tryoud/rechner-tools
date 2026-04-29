@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Kreditrechner from '../components/tools/Kreditrechner.tsx';
+import { TOOL_CONTENT } from '../lib/tool-content';
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema';
+
+const content = TOOL_CONTENT.kredit;
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Kreditrechner 2026',
+    description:
+      'Monatliche Annuitätenrate, Gesamtzinslast und Tilgungsverlauf für Darlehen berechnen – inklusive Sondertilgung.',
+    url: 'https://rechner.tools/kreditrechner',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Kreditrechner nutzen', content.howTo),
+];
+---
+
+<BaseLayout
+  title="Kreditrechner 2026 — Monatliche Rate, Zinsen & Tilgungsplan | rechner.tools"
+  description="Berechne die monatliche Kreditrate, Gesamtzinsen und den Tilgungsverlauf für dein Darlehen. Mit optionaler Sondertilgung und Jahres-Chart."
+  canonical="https://rechner.tools/kreditrechner"
+  schema={schema}
+>
+  <Kreditrechner client:load />
+</BaseLayout>

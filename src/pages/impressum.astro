@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Impressum | rechner.tools"
+  description="Impressum und Anbieterkennzeichnung nach § 5 DDG für rechner.tools."
+  canonical="https://rechner.tools/impressum"
+>
+  <main class="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6">
+    <div class="rounded-[32px] border border-border/80 bg-surface-card p-6 shadow-[0_20px_45px_rgba(44,42,37,0.06)] sm:p-8">
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Anbieterkennzeichnung</p>
+      <h1 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] text-ink">Impressum</h1>
+      
+      <div class="mt-8 space-y-8 text-sm leading-7 text-ink">
+        <section>
+          <h2 class="font-bold text-lg mb-2">Angaben gemäß § 5 DDG (To Do)</h2>
+          <ul class="list-none space-y-4 rounded-[20px] bg-accent/5 p-5 border border-accent/10">
+            <li><strong>[Vorname Nachname / Firmenname]</strong></li>
+            <li>[Straße Hausnummer]<br>[PLZ Ort]</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">Kontakt</h2>
+          <ul class="list-none space-y-1">
+            <li>Erreichbar unter: <strong>[Telefonnummer - optional bei reinen Onlinediensten oft diskussionswürdig, besser rechtssicher klären]</strong></li>
+            <li>E-Mail: <a href="mailto:[DEINE-EMAIL]" class="text-accent hover:underline"><strong>[DEINE-EMAIL]</strong></a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">Umsatzsteuer-ID & Register</h2>
+          <ul class="list-none space-y-1">
+            <li>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br><strong>[DEINE-UST-ID]</strong></li>
+            <li class="mt-2 text-ink-muted">Falls GmbH/UG/e.K.: Registergericht & Registernummer hier ergänzen.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">Haftung für Inhalte und Berechnungen (Globaler Disclaimer)</h2>
+          <p class="text-ink-muted">
+            Die auf <strong>rechner.tools</strong> bereitgestellten Rechner, Ergebnisse und redaktionellen Inhalte dienen ausschließlich der unverbindlichen Orientierung und stellen <strong>keine rechtliche, steuerliche oder betriebswirtschaftliche Beratung</strong> dar. <br><br>
+            Trotz sorgfältiger Recherche und regelmäßiger Überprüfung relevanter Primärquellen (wie Steuergesetze, BMF-Programmablaufpläne oder Sozialversicherungstabellen) übernehmen wir keine Gewähr für die Aktualität, Vollständigkeit oder absolute rechnerische Richtigkeit der Ergebnisse. Individuelle Spezialfälle, regionale Abweichungen, Zusatzbeiträge, Freibeträge oder spätere Gesetzesänderungen können das Endresultat zwingend abweichen lassen.<br><br>
+            Für verbindliche Auskünfte oder konkrete finanzielle Entscheidungen konsultieren Sie bitte stets einen qualifizierten Steuerberater, die zuständigen Behörden oder eine Kanzlei. Wir haften nicht für Schäden materieller oder ideeller Art, die durch die Nutzung oder Nichtnutzung der angebotenen Rechner und Informationen verursacht wurden.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">Urheberrecht</h2>
+          <p class="text-ink-muted">
+            Die durch die Seitenbetreiber erstellten Inhalte, Rechner-Logiken und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

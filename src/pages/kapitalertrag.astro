@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import KapitalertragRechner from '../components/tools/KapitalertragRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema'
+
+const content = TOOL_CONTENT.kapitalertrag
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Kapitalertrag-Rechner 2026',
+    description: 'Abgeltungsteuer, Soli und Kirchensteuer auf Kapitalerträge berechnen — nach Sparerpauschbetrag und verrechenbaren Verlusten.',
+    url: 'https://rechner.tools/kapitalertrag',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Kapitalertrag-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Kapitalertrag-Rechner 2026 | rechner.tools"
+  description="Wie viel Abgeltungsteuer zahle ich? Berechne Steuerlast auf Dividenden, Zinsen und Kursgewinne nach Sparerpauschbetrag und Verlustverrechnung."
+  canonical="https://rechner.tools/kapitalertrag"
+  schema={schema}
+>
+  <KapitalertragRechner client:load />
+</BaseLayout>

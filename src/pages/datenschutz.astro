@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout
+  title="Datenschutzerklärung | rechner.tools"
+  description="Datenschutzerklärung und Hinweise zur Datenverarbeitung für rechner.tools."
+  canonical="https://rechner.tools/datenschutz"
+>
+  <main class="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6">
+    <div class="rounded-[32px] border border-border/80 bg-surface-card p-6 shadow-[0_20px_45px_rgba(44,42,37,0.06)] sm:p-8">
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Transparenz</p>
+      <h1 class="mt-3 font-display text-4xl font-extrabold tracking-[-0.04em] text-ink">Datenschutz</h1>
+      
+      <div class="mt-8 space-y-8 text-sm leading-7 text-ink">
+        <section class="rounded-[20px] bg-accent/5 p-5 border border-accent/10">
+          <h2 class="font-bold text-lg mb-2 text-accent-strong">Status vor Launch / Checkliste</h2>
+          <p class="text-ink-muted">
+            Diese Datenschutzerklärung ist für den entwicklungstechnisch finalen Stand (ohne aktives Tracking) verfasst. Sobald Reichweitenmessung (Google Analytics, Plausible), Werbung (Google AdSense) oder externes Consent-Management (CMP wie Cookiebot, Usercentrics) eingebaut werden, <strong>müssen die Passagen hier zwingend ergänzt werden!</strong>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">1. Lokale Datenspeicherung (localStorage)</h2>
+          <p class="text-ink-muted">
+            Unsere Rechnertools nutzen aus Gründen der Benutzerfreundlichkeit den <code>localStorage</code> Ihres Webbrowsers. Technisch bedingt speichern wir dabei Ihre Eingaben des jeweiligen Rechners (z. B. Gehalt, gewählte Steuerklasse oder Einstellungen), damit diese bei einem Neuladen der Seite oder bei einem Wiederbesuch nicht verloren gehen und Sie fortfahren können, ohne alles neu eintippen zu müssen.
+          </p>
+          <p class="text-ink-muted mt-2">
+            <strong>Wichtig:</strong> Diese Daten bleiben strikt lokal auf Ihrem Endgerät. Sie werden zu keinem Zeitpunkt an unsere Server übertragen, dort ausgewertet oder mit anderen Nutzern geteilt. Möchten Sie die Daten löschen, können Sie hierfür die Standardfunktion Ihres Browsers ("Browserdaten/Cookies löschen") verwenden. Da es sich um technisch notwendige Speicherungen für die Kernfunktion der Rechner handelt, bedarf dies keiner vorherigen aktiven Einwilligung (Consent).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">2. Hosting, Server-Logfiles & technische Bereitstellung</h2>
+          <p class="text-ink-muted">
+            Diese Webseite wird auf den Servern eines externen Hosters bereitgestellt (<strong>[HIER HOSTING-ANBIETER wie Vercel, Netlify, Hetzner EINTRAGEN inkl. Sitz]</strong>). Bei jedem Aufruf der Webseite erfasst das System des Hosters automatisiert Daten und Informationen vom Computersystem des aufrufenden Rechners.
+          </p>
+          <ul class="list-disc pl-5 mt-2 space-y-1 text-ink-muted">
+            <li>Informationen über den Browsertyp und die verwendete Version</li>
+            <li>Das Betriebssystem des Nutzers</li>
+            <li>Die IP-Adresse des Nutzers (in der Regel anonymisiert oder nur temporär für die Bereitstellung gespeichert)</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+          </ul>
+          <p class="text-ink-muted mt-2">
+            Die vorübergehende Speicherung dieser Daten ist für die Auslieferung der Website an den Rechner des Nutzers technisch notwendig. Rechtsgrundlage ist unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) an der sicheren und fehlerfreien Bereitstellung unseres Angebots. Wir haben mit unserem Hosting-Dienstleister einen Vertrag zur Auftragsverarbeitung (AVV) geschlossen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">3. [Platzhalter: Consent-Management (CMP)]</h2>
+          <p class="text-ink-muted border-l-4 border-yellow-500 pl-3 italic">
+            Wenn Tracking oder Werbung aktiviert wird, muss hier der Anbieter des Consent Banners inkl. Zweck und Rechtsgrundlage genannt werden.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">4. [Platzhalter: Reichweitenmessung & Analytics]</h2>
+          <p class="text-ink-muted border-l-4 border-yellow-500 pl-3 italic">
+            Angaben zu z. B. Google Analytics 4, Matomo oder Plausible. Bei Einsatz von US-Diensten zwingend das Data Privacy Framework erwähnen und den Auftragsverarbeitungsvertrag benennen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">5. [Platzhalter: Werbung / Affiliate Links]</h2>
+          <p class="text-ink-muted border-l-4 border-yellow-500 pl-3 italic">
+            Angaben zu Google AdSense (inkl. Ad-Personalisierung) oder Affiliate-Netzwerken, falls zur Refinanzierung der Rechner genutzt.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-bold text-lg mb-2">6. Ihre Rechte</h2>
+          <p class="text-ink-muted">
+            Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Da wir derzeit (ohne aktivierte Tracking-Module) jedoch gar keine personenbezogenen Daten von Ihnen speichern, laufen diese Rechte faktisch ins Leere. Bei Fragen hierzu können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

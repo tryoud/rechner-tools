@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import StundenRechner from '../components/tools/StundenRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.stundenrechner
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Arbeitszeitrechner & Stundenrechner 2026',
+    description:
+      'Arbeitszeit kostenlos berechnen: Start, Ende und Pause eingeben, Dezimalstunden bzw. Industriestunden sehen und Stundenzettel als PDF drucken.',
+    url: 'https://rechner.tools/stundenrechner',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Stundenrechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Arbeitszeitrechner & Stundenrechner 2026 | Pause & Dezimalstunden"
+  description="Kostenlos Arbeitszeit berechnen: Start, Ende und Pause eingeben, Dezimalstunden/Industriestunden sehen und Stundenzettel als PDF drucken."
+  canonical="https://rechner.tools/stundenrechner"
+  schema={schema}
+>
+  <StundenRechner client:load />
+</BaseLayout>

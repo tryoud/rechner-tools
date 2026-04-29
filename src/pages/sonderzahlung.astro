@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import SonderzahlungRechner from '../components/tools/SonderzahlungRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema'
+
+const content = TOOL_CONTENT.sonderzahlung
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Urlaubsgeld-Rechner 2026',
+    description: 'Nettobetrag von Urlaubsgeld und Weihnachtsgeld berechnen — nach Lohnsteuer, Soli und Sozialversicherung.',
+    url: 'https://rechner.tools/sonderzahlung',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Urlaubsgeld-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Urlaubsgeld-Rechner 2026 | rechner.tools"
+  description="Wie viel Netto bleibt vom Urlaubsgeld oder Weihnachtsgeld? Berechne Lohnsteuer, Soli und Sozialversicherung auf Sonderzahlungen online."
+  canonical="https://rechner.tools/sonderzahlung"
+  schema={schema}
+>
+  <SonderzahlungRechner client:load />
+</BaseLayout>

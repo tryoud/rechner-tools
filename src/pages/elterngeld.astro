@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ElterngeldRechner from '../components/tools/ElterngeldRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.elterngeld
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Elterngeld-Rechner',
+    description:
+      'Basiselterngeld und ElterngeldPlus mit Monatsnetto, Bezugsdauer und Geschwisterbonus online planen.',
+    url: 'https://rechner.tools/elterngeld',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Elterngeld-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Elterngeld-Rechner | rechner.tools"
+  description="Berechne Basiselterngeld und ElterngeldPlus mit Mindest- und Höchstbetrag, Bezugsdauer und Geschwisterbonus."
+  canonical="https://rechner.tools/elterngeld"
+  schema={schema}
+>
+  <ElterngeldRechner client:load />
+</BaseLayout>

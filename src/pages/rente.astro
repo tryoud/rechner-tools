@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import RentenRechner from '../components/tools/RentenRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.rente
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Renten-Rechner 2026',
+    description:
+      'Gesetzliche Rente aus Entgeltpunkten, Einkommen und Renteneintrittsalter schätzen — mit Ab- und Zuschlägen.',
+    url: 'https://rechner.tools/rente',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Renten-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Renten-Rechner 2026 | rechner.tools"
+  description="Wie hoch wird deine gesetzliche Rente? Berechne Entgeltpunkte, Zugangsfaktor und Monatsrente direkt online."
+  canonical="https://rechner.tools/rente"
+  schema={schema}
+>
+  <RentenRechner client:load />
+</BaseLayout>

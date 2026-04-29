@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import AbfindungRechner from '../components/tools/AbfindungRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema'
+
+const content = TOOL_CONTENT.abfindung
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Abfindungs-Rechner 2026',
+    description: 'Abfindung nach Fünftelregel (§ 34 EStG) berechnen und Steuerersparnis gegenüber normaler Besteuerung ablesen.',
+    url: 'https://rechner.tools/abfindung',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Abfindungs-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Abfindungs-Rechner 2026 | rechner.tools"
+  description="Wie viel Netto bleibt von meiner Abfindung? Berechne die Fünftelregel (§ 34 EStG) und sieh die Steuerersparnis gegenüber normaler Besteuerung."
+  canonical="https://rechner.tools/abfindung"
+  schema={schema}
+>
+  <AbfindungRechner client:load />
+</BaseLayout>

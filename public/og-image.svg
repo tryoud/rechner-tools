@@ -1,0 +1,50 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#f5f5f3"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#16a34a"/>
+
+  <!-- Card -->
+  <rect x="60" y="60" width="1080" height="510" rx="28" fill="#ffffff" filter="url(#shadow)"/>
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="8" stdDeviation="24" flood-color="#0a0a0a" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <!-- Category label -->
+  <text x="100" y="160" font-family="'DM Mono', monospace" font-size="13" letter-spacing="3" fill="#16a34a" font-weight="500">FINANZRECHNER · DEUTSCHLAND · 2026</text>
+
+  <!-- Main headline -->
+  <text x="100" y="240" font-size="62" font-weight="700" fill="#0a0a0a" letter-spacing="-1.5">rechner.tools</text>
+
+  <!-- Subline -->
+  <text x="100" y="300" font-size="26" font-weight="400" fill="#64748b">Kostenlose Rechner für Steuer, Gehalt &amp; Finanzen</text>
+
+  <!-- Tool pills -->
+  <rect x="100" y="350" width="180" height="40" rx="20" fill="#f0fdf4"/>
+  <text x="190" y="376" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Brutto-Netto</text>
+
+  <rect x="294" y="350" width="140" height="40" rx="20" fill="#f0fdf4"/>
+  <text x="364" y="376" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Rente</text>
+
+  <rect x="448" y="350" width="170" height="40" rx="20" fill="#f0fdf4"/>
+  <text x="533" y="376" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Steuer</text>
+
+  <rect x="632" y="350" width="180" height="40" rx="20" fill="#f0fdf4"/>
+  <text x="722" y="376" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Elterngeld</text>
+
+  <rect x="826" y="350" width="170" height="40" rx="20" fill="#f0fdf4"/>
+  <text x="911" y="376" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Krankengeld</text>
+
+  <!-- Divider -->
+  <line x1="100" y1="430" x2="1100" y2="430" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="100" y="480" font-family="'DM Mono', monospace" font-size="13" fill="#94a3b8">15 Tools · Kostenlos · Keine Registrierung · Immer aktuell</text>
+
+  <!-- Domain badge -->
+  <rect x="920" y="455" width="220" height="46" rx="23" fill="#16a34a"/>
+  <text x="1030" y="484" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">rechner.tools</text>
+</svg>

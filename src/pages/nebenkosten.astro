@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import NebenkostenRechner from '../components/tools/NebenkostenRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.nebenkosten
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Nebenkosten-Rechner',
+    description:
+      'Heizkosten nach Fläche und Verbrauch verteilen, Benchmarks prüfen und Nebenkosten-Szenarien vergleichen.',
+    url: 'https://rechner.tools/nebenkosten',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Nebenkosten-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Nebenkosten-Rechner | rechner.tools"
+  description="Prüfe Heizkosten nach Verbrauch und Wohnfläche, inklusive Heizkostenverordnung, Benchmarks und What-if-Szenarien."
+  canonical="https://rechner.tools/nebenkosten"
+  schema={schema}
+>
+  <NebenkostenRechner client:load />
+</BaseLayout>

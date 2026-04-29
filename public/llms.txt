@@ -1,0 +1,68 @@
+# rechner.tools — Kostenlose Finanzrechner für Deutschland
+
+Kostenlose, werbefreie Online-Rechner für deutsches Steuer- und Sozialrecht.
+Alle Berechnungen laufen im Browser, ohne Registrierung, nach aktuellem Stand 2026.
+
+## Rechner
+
+- Brutto-Netto-Rechner 2026: https://rechner.tools/brutto-netto
+  Netto aus Brutto, Steuerklasse, Sozialabgaben und Firmenwagen schätzen.
+  Beispiel: 3.000 € brutto, Steuerklasse I → ca. 1.950 € netto (2026).
+
+- Renten-Rechner: https://rechner.tools/rente
+  Gesetzliche Rente aus Entgeltpunkten, Einkommen und Renteneintrittsalter schätzen.
+
+- Steuerrechner: https://rechner.tools/steuerrechner
+  Einkommensteuer, Solidaritätszuschlag und Kirchensteuer nach § EStG 2026.
+
+- Stundenrechner (Arbeitszeit): https://rechner.tools/stundenrechner
+  Arbeitszeiten und Pausen erfassen, Industriestunden und Lohn berechnen.
+
+- Krankengeld-Rechner: https://rechner.tools/krankengeld
+  GKV-Krankengeld nach SGB V § 47: 70 % des Brutto, max. 90 % des Netto.
+
+- Elterngeld-Rechner: https://rechner.tools/elterngeld
+  Basiselterngeld und ElterngeldPlus mit Geschwisterbonus berechnen.
+
+- Kreditrechner: https://rechner.tools/kreditrechner
+  Monatliche Raten, Zinsen und Tilgungspläne für Kredite.
+
+- Sparrechner: https://rechner.tools/sparrechner
+  Zinseszins, Sparpläne und Endguthaben berechnen.
+
+- Kapitalertrag-Rechner: https://rechner.tools/kapitalertrag
+  Abgeltungsteuer auf Dividenden und Kursgewinne nach Sparerpauschbetrag.
+
+- Stundensatz-Rechner: https://rechner.tools/stundensatz
+  Freelancer-Stundensatz aus Zielnetto, Fixkosten und Auslastung herleiten.
+
+- Gewerbesteuer-Rechner: https://rechner.tools/gewerbesteuer
+  Gewerbesteuer aus Ertrag, Steuermesszahl und Hebesatz — mit ESt-Anrechnung.
+
+- Abfindungs-Rechner: https://rechner.tools/abfindung
+  Abfindung nach Fünftelregel (§ 34 EStG) und Steuerersparnis berechnen.
+
+- Urlaubsgeld-Rechner: https://rechner.tools/sonderzahlung
+  Nettobetrag von Urlaubsgeld und Weihnachtsgeld nach Lohnsteuer berechnen.
+
+- Nebenkosten-Rechner: https://rechner.tools/nebenkosten
+  Heizkosten nach Verbrauch und Fläche verteilen, Benchmarks prüfen.
+
+- Mietpreisbremse-Rechner: https://rechner.tools/mietpreisbremse
+  Prüfen ob die Miete die gesetzliche Obergrenze einhält.
+
+## Rechtliche Grundlagen
+
+Alle Rechner basieren auf aktuellen deutschen Gesetzen und Verordnungen:
+- Einkommensteuergesetz (EStG) — Stand 2026
+- Sozialgesetzbuch (SGB V, SGB VI)
+- Bundeselterngeld- und Elternzeitgesetz (BEEG)
+- Gewerbesteuergesetz (GewStG)
+- Mietrechtsnovellierungsgesetz (MietNovG)
+
+## Über rechner.tools
+
+Betreiber: rechner.tools (Deutschland)
+Kontakt: https://rechner.tools/impressum
+Datenschutz: https://rechner.tools/datenschutz
+Sitemap: https://rechner.tools/sitemap-index.xml

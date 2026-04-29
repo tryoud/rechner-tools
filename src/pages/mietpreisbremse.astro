@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import MietpreisbremseRechner from '../components/tools/MietpreisbremseRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema'
+
+const content = TOOL_CONTENT.mietpreisbremse
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Mietpreisbremse-Rechner',
+    description: 'Prüfe, ob deine Miete die gesetzliche Obergrenze einhält — inklusive Modernisierungszuschlag und Vormiete-Ausnahme.',
+    url: 'https://rechner.tools/mietpreisbremse',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Mietpreisbremse-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Mietpreisbremse-Rechner | rechner.tools"
+  description="Ist meine Miete zu hoch? Prüfe die Mietpreisbremse nach BGB § 556d — mit Modernisierungszuschlag, Vormiete und Neubau-Ausnahme."
+  canonical="https://rechner.tools/mietpreisbremse"
+  schema={schema}
+>
+  <MietpreisbremseRechner client:load />
+</BaseLayout>

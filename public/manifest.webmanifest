@@ -1,0 +1,22 @@
+{
+  "name": "rechner.tools",
+  "short_name": "rechner.tools",
+  "description": "Mobile-first Utility-Rechner fuer Gehalt, Elterngeld, Nebenkosten und Selbststaendigkeit.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#1f6b57",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

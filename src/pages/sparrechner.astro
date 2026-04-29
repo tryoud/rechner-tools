@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sparrechner from '../components/tools/Sparrechner.tsx';
+import { TOOL_CONTENT } from '../lib/tool-content';
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema';
+
+const content = TOOL_CONTENT.spar;
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Sparrechner',
+    description:
+      'Endguthaben, Zinsen und Zinseszinseffekt für Sparpläne berechnen — mit jahresgenauer Vermögensentwicklung.',
+    url: 'https://rechner.tools/sparrechner',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Sparrechner nutzen', content.howTo),
+];
+---
+
+<BaseLayout
+  title="Sparrechner — Zinsen, Endguthaben & Zinseszins berechnen | rechner.tools"
+  description="Berechne, wie viel dein Sparplan mit Zinseszins wirklich einbringt. Mit monatlicher Einzahlung, Jahreszins und jahresgenauem Vermögenschart."
+  canonical="https://rechner.tools/sparrechner"
+  schema={schema}
+>
+  <Sparrechner client:load />
+</BaseLayout>

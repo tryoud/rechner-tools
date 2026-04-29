@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import KrankengeldRechner from '../components/tools/KrankengeldRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.krankengeld
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Krankengeld-Rechner 2026',
+    description:
+      'GKV-Krankengeld nach SGB V § 47 berechnen: 70 % des Brutto, max. 90 % des Netto, Einkommensverlust und Bezugsdauer.',
+    url: 'https://rechner.tools/krankengeld',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Krankengeld-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Krankengeld-Rechner 2026 | rechner.tools"
+  description="Wie viel Krankengeld bekomme ich? Berechne GKV-Krankengeld, Einkommensverlust und maximale Bezugsdauer nach SGB V direkt online."
+  canonical="https://rechner.tools/krankengeld"
+  schema={schema}
+>
+  <KrankengeldRechner client:load />
+</BaseLayout>

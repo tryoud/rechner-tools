@@ -1,0 +1,88 @@
+---
+import '../styles/global.css'
+import { AdSlot } from '../components/ads/AdSlot'
+import { createBreadcrumbSchema, createOrganizationSchema, createSpeakableSchema } from '../lib/schema'
+
+interface Props {
+  title: string
+  description: string
+  canonical: string
+  schema?: Record<string, unknown>[]
+}
+
+const { title, description, canonical, schema = [] } = Astro.props
+
+const isHomePage = canonical === 'https://rechner.tools' || canonical === 'https://rechner.tools/'
+const toolName = title.replace(/\s*\|\s*rechner\.tools$/, '').trim()
+
+const autoSchema = [
+  createOrganizationSchema(),
+  ...(isHomePage ? [] : [
+    createBreadcrumbSchema(toolName, canonical),
+    createSpeakableSchema(['.result-summary', '[data-speakable]', '.faq-answer']),
+  ]),
+]
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://rechner.tools/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://rechner.tools/og-image.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#1f6b57" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      [...autoSchema, ...schema].map((entry) => (
+        <script type="application/ld+json" set:html={JSON.stringify(entry)} />
+      ))
+    }
+    <!-- Google AdSense Placeholder -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-placeholder" crossorigin="anonymous"></script>
+    
+    <!-- Plausible Analytics -->
+    <script defer data-domain="rechner.tools" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body class="bg-surface text-ink font-body antialiased relative">
+    <slot />
+    <AdSlot id="sticky" layout="sticky-bottom" client:load />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          const isLocal =
+            window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+
+          if (isLocal) {
+            navigator.serviceWorker
+              .getRegistrations()
+              .then((registrations) => registrations.forEach((registration) => registration.unregister()))
+              .catch(() => undefined)
+            return
+          }
+
+          navigator.serviceWorker.register('/sw.js').catch(() => undefined)
+        })
+      }
+    </script>
+  </body>
+</html>

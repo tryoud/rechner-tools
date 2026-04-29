@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BruttoNettoRechner from '../components/tools/BruttoNettoRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT['brutto-netto']
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Brutto-Netto-Rechner 2026',
+    description:
+      'Monatsnetto 2026 aus Brutto, Steuerklasse, Sozialabgaben und Firmenwagen direkt im Browser schätzen.',
+    url: 'https://rechner.tools/brutto-netto',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Brutto-Netto-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Brutto-Netto-Rechner 2026 | rechner.tools"
+  description="Was bleibt 2026 vom Gehalt übrig? Berechne Netto, Sozialabgaben, Kirchensteuer und Firmenwagen-Szenarien direkt online."
+  canonical="https://rechner.tools/brutto-netto"
+  schema={schema}
+>
+  <BruttoNettoRechner client:load />
+</BaseLayout>

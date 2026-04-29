@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-surface: #f6f5f1;
+  --color-surface-card: #ffffff;
+  --color-surface-elevated: #fbfaf7;
+  --color-surface-soft: #eeece5;
+  --color-surface-dark: #13231d;
+  --color-ink: #17211c;
+  --color-ink-muted: #5d6a63;
+  --color-ink-faint: #9aa39d;
+  --color-accent: #168a5a;
+  --color-accent-strong: #0f5138;
+  --color-accent-light: #eaf7ef;
+  --color-accent-mid: #12724b;
+  --color-border: #e2dfd6;
+  --color-border-strong: #cbc6b9;
+  --color-highlight: #d69d2f;
+
+  --font-display: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: #f6f5f1;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(214, 157, 47, 0.12), transparent 28rem),
+    radial-gradient(circle at 92% 4rem, rgba(22, 138, 90, 0.13), transparent 24rem),
+    linear-gradient(180deg, #fbfaf6 0%, #f6f5f1 34rem);
+}
+
+a,
+button,
+input,
+select {
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    opacity 140ms ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(22, 138, 90, 0.18);
+}
+
+/* Hide number input spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: linear-gradient(90deg, #168a5a, #d69d2f);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #168a5a;
+  box-shadow: 0 4px 12px rgba(15, 81, 56, 0.18);
+  cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #168a5a;
+  box-shadow: 0 4px 12px rgba(15, 81, 56, 0.18);
+  cursor: pointer;
+}

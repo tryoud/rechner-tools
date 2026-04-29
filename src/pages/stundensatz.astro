@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import StundensatzRechner from '../components/tools/StundensatzRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.stundensatz
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Stundensatz-Rechner 2026',
+    description:
+      'Freelancer-Stundensatz aus Zielnetto, Fixkosten, Auslastung und Risiko direkt im Browser berechnen.',
+    url: 'https://rechner.tools/stundensatz',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Stundensatz-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Stundensatz-Rechner 2026 | rechner.tools"
+  description="Berechne deinen Mindeststundensatz als Freelancer für 2026 - inklusive Fixkosten, Krankenversicherung, Auslastung und Reserve."
+  canonical="https://rechner.tools/stundensatz"
+  schema={schema}
+>
+  <StundensatzRechner client:load />
+</BaseLayout>

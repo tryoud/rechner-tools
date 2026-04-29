@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:4321)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(awk '/SectionLabel.*\"03\".*Arbeitsrealita/,/ScenarioStrip|trust=|analysis=/' /Users/nikolasmaerker/Projects/rechner-tools/src/components/tools/StundensatzRechner.tsx)",
+      "Bash(awk '/SectionLabel.*\"03\".*Annahmen/,/ScenarioStrip|trust=|analysis=/' /Users/nikolasmaerker/Projects/rechner-tools/src/components/tools/RentenRechner.tsx)"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import GewerbesteuerRechner from '../components/tools/GewerbesteuerRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema'
+
+const content = TOOL_CONTENT.gewerbesteuer
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Gewerbesteuer-Rechner 2026',
+    description: 'Gewerbesteuer aus Ertrag, Steuermesszahl und Hebesatz berechnen — mit Freibetrag, Hinzurechnungen und ESt-Anrechnung.',
+    url: 'https://rechner.tools/gewerbesteuer',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Gewerbesteuer-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Gewerbesteuer-Rechner 2026 | rechner.tools"
+  description="Wie viel Gewerbesteuer zahle ich? Berechne Steuermessbetrag, Hebesatz und ESt-Anrechnung für Einzelunternehmer und GmbH online."
+  canonical="https://rechner.tools/gewerbesteuer"
+  schema={schema}
+>
+  <GewerbesteuerRechner client:load />
+</BaseLayout>

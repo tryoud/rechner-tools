@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Steuerrechner from '../components/tools/Steuerrechner.tsx';
+import { TOOL_CONTENT } from '../lib/tool-content';
+import { createFAQSchema, createHowToSchema, createSoftwareApplicationSchema } from '../lib/schema';
+
+const content = TOOL_CONTENT.steuer;
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Steuerrechner 2026',
+    description:
+      'Einkommensteuer, Solidaritätszuschlag und Kirchensteuer berechnen — nach Abzügen und Ehegattensplitting.',
+    url: 'https://rechner.tools/steuerrechner',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Steuerrechner nutzen', content.howTo),
+];
+---
+
+<BaseLayout
+  title="Steuerrechner 2026 — Einkommensteuer, Soli & Kirchensteuer berechnen | rechner.tools"
+  description="Berechne deine Einkommensteuer 2026 nach Abzügen, Steuerstatus und Kirchensteuer. Mit Effektivrate, Grenzsteuersatz und Ehegattensplitting."
+  canonical="https://rechner.tools/steuerrechner"
+  schema={schema}
+>
+  <Steuerrechner client:load />
+</BaseLayout>

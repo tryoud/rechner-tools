@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import QrCodeGenerator from '../components/tools/QrCodeGenerator'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.qrcode
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'QR-Code-Generator kostenlos',
+    description:
+      'QR-Code kostenlos online erstellen: URL, Text, WLAN-Zugang oder vCard eingeben und als PNG oder SVG herunterladen.',
+    url: 'https://rechner.tools/qrcode',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('QR-Code erstellen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="QR-Code-Generator kostenlos | PNG & SVG erstellen"
+  description="Kostenlos QR-Code erstellen: URL, Text, WLAN-Zugang oder Kontakt eingeben, Vorschau prüfen und als PNG oder SVG herunterladen."
+  canonical="https://rechner.tools/qrcode"
+  schema={schema}
+>
+  <QrCodeGenerator client:load />
+</BaseLayout>
