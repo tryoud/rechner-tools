@@ -187,7 +187,7 @@ export default function KapitalertragRechner() {
             title="Verteilung der Kapitalerträge"
             labels={['Nettobetrag', 'Abgeltungsteuer', 'Soli', 'Kirchensteuer']}
             values={[calc.netPayout, calc.abgeltungsteuer, calc.soli, calc.kirchensteuer]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
           />
         }
         trust={

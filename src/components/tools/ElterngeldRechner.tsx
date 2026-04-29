@@ -194,7 +194,7 @@ export default function ElterngeldRechner() {
             title="Monatslogik"
             labels={['Einkommensausfall', 'Basisbetrag', 'Bonus']}
             values={[calc.incomeLoss, calc.baseAmount, calc.siblingBonus]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
             mode="bar"
           />
         }

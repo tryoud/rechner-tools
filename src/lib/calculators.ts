@@ -1,4 +1,5 @@
 import {
+  ARBEITSLOSENGELD_CONFIG_2026,
   ELTERNGELD_CONFIG_2026,
   GEWERBESTEUER_CONFIG,
   KAPITALERTRAG_CONFIG_2026,
@@ -112,6 +113,14 @@ export interface RentenInputs {
   currentGrossMonthly: number;
   earnedPointsSoFar: number;
   annualIncomeGrowthPercent: number;
+}
+
+export interface ArbeitslosengeldInputs {
+  grossMonthly: number;
+  netMonthly: number;
+  hasChildren: boolean;
+  employmentMonths: number;
+  isEastGermany: boolean;
 }
 
 export interface KrankengeldInputs {
@@ -689,6 +698,65 @@ export function calculateKrankengeld(input: KrankengeldInputs) {
     gkvDurationWeeks: cfg.maxDurationWeeks - cfg.entgeltfortzahlungWeeks,
     maxGkvPayout: roundCurrency(maxGkvPayout),
     entgeltfortzahlungWeeks: cfg.entgeltfortzahlungWeeks,
+  };
+}
+
+export function calculateArbeitslosengeld(input: ArbeitslosengeldInputs) {
+  const cfg = ARBEITSLOSENGELD_CONFIG_2026;
+
+  const hasClaim = input.employmentMonths >= cfg.minEmploymentMonths;
+
+  // Berechne den Tagessatz
+  const dailyGross = input.grossMonthly / cfg.daysPerMonth;
+  const cappedDailyGross = Math.min(dailyGross, cfg.assessmentCeilingMonthly / cfg.daysPerMonth);
+
+  // ALG I rate: 60% or 67% with children
+  const rate = input.hasChildren ? cfg.baseRateWithChild : cfg.baseRate;
+
+  // Berechne das tägliche Arbeitslosengeld
+  const dailyALG = hasClaim ? cappedDailyGross * rate : 0;
+
+  // Monatliches Arbeitslosengeld
+  const monthlyALG = hasClaim ? dailyALG * cfg.daysPerMonth : 0;
+
+  // Einkommensverlust
+  const incomeLossMonthly = hasClaim ? Math.max(input.netMonthly - monthlyALG, 0) : 0;
+
+  // Berechne die Bezugsdauer basierend auf der Versicherungsdauer
+  let durationWeeks = 0;
+  if (hasClaim) {
+    // Find the appropriate rate
+    const rates = Object.entries(cfg.durationRates).map(([months, weeks]) => ({
+      months: parseInt(months),
+      weeks,
+    }));
+
+    // Sort descending and find the first matching rate
+    const sortedRates = rates.sort((a, b) => b.months - a.months);
+    const applicableRate = sortedRates.find((r) => input.employmentMonths >= r.months);
+
+    if (applicableRate) {
+      durationWeeks = applicableRate.weeks;
+    } else {
+      // Max duration for longest employment
+      durationWeeks = cfg.maxDurationMonths * 4.33; // ~weeks
+    }
+  }
+
+  // Maximale Auszahlung (grundsätzlicher Anspruch)
+  const weeklyALG = dailyALG * 7;
+  const maxPayout = weeklyALG * durationWeeks;
+
+  return {
+    dailyALG: roundCurrency(dailyALG),
+    weeklyALG: roundCurrency(weeklyALG),
+    monthlyALG: roundCurrency(monthlyALG),
+    incomeLossMonthly: roundCurrency(incomeLossMonthly),
+    durationWeeks,
+    maxPayout: roundCurrency(maxPayout),
+    effectiveRate: roundCurrency(rate * 100),
+    netReplacementRate: hasClaim ? roundCurrency((monthlyALG / input.netMonthly) * 100) : 0,
+    hasClaim,
   };
 }
 

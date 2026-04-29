@@ -203,7 +203,7 @@ export default function KrankengeldRechner() {
             title="Einkommensverteilung im Krankheitsfall"
             labels={['Krankengeld / Krankentagegeld', 'Einkommensverlust']}
             values={[calc.effectiveMonthly, calc.incomeLossMonthly]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155']]}
           />
         }
         trust={

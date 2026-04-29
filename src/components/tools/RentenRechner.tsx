@@ -172,7 +172,7 @@ export default function RentenRechner() {
               input.earnedPointsSoFar * calc.rentenwert,
               calc.futurePoints * calc.rentenwert,
             ]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
           />
         }
         trust={

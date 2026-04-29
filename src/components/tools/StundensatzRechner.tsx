@@ -349,7 +349,7 @@ export default function StundensatzRechner() {
               title="Was deinen Zielumsatz treibt"
               labels={['Nettoziel', 'Krankenvers.', 'Fixkosten', 'Rücklage']}
               values={[calc.netAnnual, calc.healthAnnual, calc.fixedAnnual, calc.pensionAnnual]}
-              colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+              colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
             />
           }
           trust={

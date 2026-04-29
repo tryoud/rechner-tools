@@ -321,7 +321,7 @@ export default function Steuerrechner() {
               title="Einkommensverteilung"
               labels={['Netto', 'Einkommensteuer', 'Soli', ...(input.churchTax ? ['Kirchensteuer'] : [])]}
               values={[calc.netIncome, calc.einkommensteuer, calc.soli, ...(input.churchTax ? [calc.kirchensteuer] : [])]}
-              colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+              colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
             />
           }
           trust={

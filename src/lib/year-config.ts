@@ -115,3 +115,27 @@ export const KRANKENGELD_CONFIG_2026 = {
   // Maximale Krankengeld-Bezugsdauer (Wochen) ab Erkrankungsbeginn
   maxDurationWeeks: 78,
 } as const;
+
+export const ARBEITSLOSENGELD_CONFIG_2026 = {
+  // ALG I berechnet sich aus dem maintienable income (beitragspflichtiges Entgelt)
+  // Grundsatz: 60% des letzten Nettoentgelts (67% mit Kind)
+  baseRate: 0.6,
+  baseRateWithChild: 0.67,
+  // Beitragsbemessungsgrenze (West = Ost seit 2024)
+  assessmentCeilingMonthly: 8450,
+  // Tage pro Monat für die Berechnung
+  daysPerMonth: 30,
+  // Mindestanspruchszeit: 12 Monate in den letzten 2 Jahren
+  minEmploymentMonths: 12,
+  // Maximale Bezugsdauer basierend auf Versicherungsdauer
+  // in Monaten Versicherungszeit -> Wochen Bezugsdauer
+  durationRates: {
+    12: 26,  // 12 Monate -> 26 Wochen
+    16: 39,  // 16 Monate -> 39 Wochen
+    20: 52,  // 20 Monate -> 52 Wochen
+  } as const,
+  // Maximale Bezugsdauer (Monate)
+  maxDurationMonths: 12,
+  // Wartenzeit (Sperrzeit) in Wochen - standardmäßig 1 Woche
+  waitingPeriodWeeks: 1,
+} as const;

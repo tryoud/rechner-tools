@@ -17,7 +17,8 @@ interface BreakdownChartProps {
   labels: string[];
   /** Single series: number[]. Multi-series (requires seriesLabels): number[][] */
   values: number[] | number[][];
-  colors: string[];
+  /** Per-series color. When an array is passed, one color is applied per data point */
+  colors: (string | string[])[];
   mode?: 'bar' | 'doughnut';
   /** When provided, values must be number[][] — one array per series label */
   seriesLabels?: string[];
@@ -48,11 +49,11 @@ export default function BreakdownChart({
 
   const isMultiSeries = Array.isArray(seriesLabels) && seriesLabels.length > 0;
 
-  const datasets = isMultiSeries
+  const datasets: { label: string; data: number[]; backgroundColor: string | string[]; borderColor: string; borderWidth: number; borderRadius: number }[] = isMultiSeries
     ? (seriesLabels as string[]).map((label, i) => ({
         label,
         data: (values as number[][])[i] ?? [],
-        backgroundColor: colors[i] ?? '#94a3b8',
+        backgroundColor: Array.isArray(colors[i]) ? colors[i] as string[] : (colors[i] ?? '#94a3b8'),
         borderColor: '#fffdf8',
         borderWidth: 0,
         borderRadius: stacked ? 0 : 6,
@@ -61,7 +62,7 @@ export default function BreakdownChart({
         {
           label: title,
           data: values as number[],
-          backgroundColor: colors,
+          backgroundColor: Array.isArray(colors[0]) ? colors[0] as string[] : (colors[0] ?? '#94a3b8'),
           borderColor: '#fffdf8',
           borderWidth: mode === 'doughnut' ? 4 : 0,
           borderRadius: mode === 'bar' ? 10 : 0,

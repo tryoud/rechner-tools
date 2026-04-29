@@ -329,7 +329,7 @@ export default function BruttoNettoRechner() {
                 calc.incomeTaxAnnual / 12,
                 calc.taxableCarBenefitMonthly,
               ]}
-              colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+              colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
             />
           }
           trust={

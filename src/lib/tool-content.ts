@@ -1088,4 +1088,79 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
       },
     ],
   },
+  arbeitslosengeld: {
+    summary:
+      'Berechnet das Arbeitslosengeld I nach SGB III: 60 % / 67 % mit Kind des letzten beitragspflichtigen Entgelts, inklusive Bezugsdauer und Einkommensverlust.',
+    updatedAt: '2026-04-29',
+    checkedAgainst:
+      'SGB III § 149 (Leistungssatz), § 147 (Anwartschaftszeit), Beitragsbemessungsgrenze West 2026 (8.450 EUR).',
+    sources: [
+      {
+        label: 'Bundesagentur für Arbeit: Arbeitslosengeld I 2026',
+        url: 'https://www.arbeitsagentur.de/bildung/weiterbildung/foerdermoeglichkeiten/arbeitslosengeld-i',
+      },
+      {
+        label: 'SGB III - Drittes Buch Sozialgesetzbuch',
+        url: 'https://www.gesetze-im-internet.de/sgb_3/',
+      },
+    ],
+    disclaimer: COMMON_DISCLAIMER,
+    scenarios: [
+      {
+        title: 'Mit Kind',
+        text: 'Mit Kind(ern) im Haushalt erhöht sich der Leistungssatz von 60 % auf 67 % des letzten Nettolohns.',
+      },
+      {
+        title: 'Lange Versicherungsdauer',
+        text: 'Bei 24 Monaten Beitragszahlung in den letzten 2 Jahren verlängert sich die Bezugsdauer auf bis zu 12 Monate.',
+      },
+      {
+        title: 'Beitragsbemessungsgrenze',
+        text: 'Bei einem Brutto über 8.450 EUR / Monat (West) wird das Arbeitslosengeld nach der Bemessungsgrenze berechnet.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Wer hat Anspruch auf Arbeitslosengeld I?',
+        answer:
+          'Arbeitnehmer, die in den letzten 2 Jahren vor der Arbeitslosigkeit mindestens 12 Monate in die Arbeitslosenversicherung eingezahlt haben und arbeitslos sind.',
+      },
+      {
+        question: 'Wie hoch ist das Arbeitslosengeld I?',
+        answer:
+          '60 % des letzten beitragspflichtigen Nettoentgelts. Bei Arbeitnehmern mit mindestens einem Kind im Haushalt sind es 67 %.',
+      },
+      {
+        question: 'Wie lange wird Arbeitslosengeld I gezahlt?',
+        answer:
+          'Die Bezugsdauer richtet sich nach der Dauer der Beitragszahlung: bei 12 Monaten Einzahlung: 6 Monate, bei 16 Monaten: 9 Monate, bei 20 Monaten: 10,5 Monate, bei 24+ Monaten: bis zu 12 Monate.',
+      },
+      {
+        question: 'Wann beginnt die Zahlung?',
+        answer:
+          'Arbeitslosengeld I wird ab dem ersten Tag der Arbeitslosigkeit gezahlt, sofern der Anspruchemit dem Arbeitgeber frühzeitig gemeldet wurde.',
+      },
+    ],
+    howTo: [
+      {
+        title: '1. Bruttolohn eingeben',
+        description:
+          'Trage dein monatliches Bruttogehalt aus dem letzten Beschäftigungsverhältnis ein.',
+      },
+      {
+        title: '2. Nettolohn eingeben',
+        description:
+          'Trage dein monatliches Nettoeinkommen aus dem letzten Gehaltsabrechnung ein.',
+      },
+      {
+        title: '3. Angaben zur Situation',
+        description: 'Gib an, ob du Kinder hast und wie lange du in die Arbeitslosenversicherung eingezahlt hast.',
+      },
+      {
+        title: '4. Ergebnis ablesen',
+        description:
+          'Der Rechner zeigt dein voraussichtliches Arbeitslosengeld I, die Bezugsdauer und den Einkommensverlust im Vergleich zu deinem vorherigen Lohn.',
+      },
+    ],
+  },
 };

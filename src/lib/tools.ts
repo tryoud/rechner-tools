@@ -147,6 +147,19 @@ export const TOOLS: Tool[] = [
     related: ['brutto-netto', 'steuerrechner', 'rente'],
   },
   {
+    id: 'arbeitslosengeld',
+    title: 'Arbeitslosengeld-Rechner',
+    description:
+      'Arbeitslosengeld I nach SGB III berechnen: 60 % / 67 % mit Kind des letzten Nettolohns, Bezugsdauer und Einkommensverlust.',
+    category: 'Arbeit',
+    slug: '/arbeitslosengeld',
+    volume: 'New',
+    available: true,
+    new: true,
+    phase: 'live',
+    related: ['brutto-netto', 'abfindung', 'krankengeld'],
+  },
+  {
     id: 'rente',
     title: 'Renten-Rechner',
     description:

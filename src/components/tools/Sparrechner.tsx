@@ -201,7 +201,7 @@ export default function Sparrechner() {
               title="Vermögensentwicklung nach Jahr"
               labels={chartLabels}
               values={[contributedValues, interestValues]}
-              colors={['#334155', '#004b34']}
+              colors={[['#334155', '#004b34']]}
               seriesLabels={['Eingezahlt', 'Zinsen']}
               mode="bar"
               stacked

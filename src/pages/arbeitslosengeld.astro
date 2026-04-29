@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ArbeitslosengeldRechner from '../components/tools/ArbeitslosengeldRechner'
+import { TOOL_CONTENT } from '../lib/tool-content'
+import {
+  createFAQSchema,
+  createHowToSchema,
+  createSoftwareApplicationSchema,
+} from '../lib/schema'
+
+const content = TOOL_CONTENT.arbeitslosengeld
+const schema = [
+  createSoftwareApplicationSchema({
+    name: 'Arbeitslosengeld-Rechner 2026',
+    description:
+      'Arbeitslosengeld I nach SGB III berechnen: 60 % / 67 % mit Kind des letzten Nettolohns, Bezugsdauer und Einkommensverlust.',
+    url: 'https://rechner.tools/arbeitslosengeld',
+  }),
+  createFAQSchema(content.faqs),
+  createHowToSchema('Arbeitslosengeld-Rechner nutzen', content.howTo),
+]
+---
+
+<BaseLayout
+  title="Arbeitslosengeld-Rechner 2026 | rechner.tools"
+  description="Wie viel Arbeitslosengeld I bekomme ich? Berechne ALG I nach SGB III, Bezugsdauer und Einkommensverlust direkt online."
+  canonical="https://rechner.tools/arbeitslosengeld"
+  schema={schema}
+>
+  <ArbeitslosengeldRechner client:load />
+</BaseLayout>

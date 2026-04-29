@@ -196,7 +196,7 @@ export default function SonderzahlungRechner() {
             title="Verteilung der Sonderzahlung"
             labels={['Nettobetrag', 'Lohnsteuer', 'Sozialversicherung']}
             values={[calc.netBonus, calc.incomeTaxOnBonus + calc.soliOnBonus, calc.socialOnBonus]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
           />
         }
         trust={

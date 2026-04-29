@@ -211,7 +211,7 @@ export default function MietpreisbremseRechner() {
             title="Erlaubte vs. aktuelle Miete"
             labels={['Zulässige Höchstmiete', 'Aktuelle Kaltmiete']}
             values={[calc.maxAllowedRent, input.currentRentMonthly]}
-            colors={['#004b34', '#334155', '#94a3b8', '#e2e8f0']}
+            colors={[['#004b34', '#334155', '#94a3b8', '#e2e8f0']]}
             mode="bar"
           />
         }
